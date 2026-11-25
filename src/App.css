@@ -1,31 +1,166 @@
-body { font-family: system-ui, sans-serif; background: #f4f7f4; margin: 0; }
-.container { max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
-h1 { color: #2e6b3a; font-size: 1.5rem; }
-.card { background: #fff; border-radius: 10px; padding: 1.5rem;
-        box-shadow: 0 1px 4px rgba(0,0,0,.08); margin: 1rem 0; }
-.actions { display: flex; justify-content: space-between; }
-button { background: #2e6b3a; color: #fff; border: 0; padding: .6rem 1.2rem;
-         border-radius: 6px; cursor: pointer; }
-button:disabled { background: #aab8ab; cursor: not-allowed; }
-.steps { display: flex; list-style: none; padding: 0; gap: .5rem; }
-.steps li { flex: 1; text-align: center; font-size: .8rem; color: #888; }
-.steps .dot { display: block; width: 28px; height: 28px; line-height: 28px;
-              border-radius: 50%; background: #ddd; margin: 0 auto 4px; }
-.steps .active { color: #2e6b3a; font-weight: 600; }
-.steps .active .dot, .steps .done .dot { background: #2e6b3a; color: #fff; }
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-@media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
-.field { display: flex; flex-direction: column; font-size: .85rem; color: #444; gap: 4px; }
-.field input, .field select { padding: .5rem; border: 1px solid #ccd5cc;
-                              border-radius: 6px; font-size: .95rem; }
-.row-card { border: 1px solid #e0e7e0; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
-.row-head { display: flex; justify-content: space-between; margin-bottom: .75rem; }
-button.secondary { background: #fff; color: #2e6b3a; border: 1px dashed #2e6b3a; }
-button.link-btn { background: none; color: #b3261e; padding: 0; }
-.debug { font-size: .75rem; background: #eef2ee; padding: 1rem; border-radius: 8px; overflow: auto; }
-.hint { font-size: .8rem; color: #666; margin-top: .5rem; }
-.errors { background: #fdecea; color: #b3261e; border-radius: 6px;
-          padding: .75rem 1.5rem; margin-top: 1rem; font-size: .85rem; }
-.summary h3 { margin: 1rem 0 .25rem; color: #2e6b3a; font-size: 1rem; }
-.summary p, .summary ul { margin: .15rem 0; font-size: .9rem; }
-.success { text-align: center; }
+/* App-specific custom utilities if needed */
+
+.container {
+    max-width: 720px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h1 {
+    color: #2e6b3a;
+    font-size: 1.5rem;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+    margin: 1rem 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background: #2e6b3a;
+    color: #fff;
+    border: 0;
+    padding: .6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background: #aab8ab;
+    cursor: not-allowed;
+}
+
+.steps {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: .5rem;
+}
+
+.steps li {
+    flex: 1;
+    text-align: center;
+    font-size: .8rem;
+    color: #888;
+}
+
+.steps .dot {
+    display: block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 50%;
+    background: #ddd;
+    margin: 0 auto 4px;
+}
+
+.steps .active {
+    color: #2e6b3a;
+    font-weight: 600;
+}
+
+.steps .active .dot,
+.steps .done .dot {
+    background: #2e6b3a;
+    color: #fff;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 560px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    font-size: .85rem;
+    color: #444;
+    gap: 4px;
+}
+
+.field input,
+.field select {
+    padding: .5rem;
+    border: 1px solid #ccd5cc;
+    border-radius: 6px;
+    font-size: .95rem;
+}
+
+.row-card {
+    border: 1px solid #e0e7e0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.row-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .75rem;
+}
+
+button.secondary {
+    background: #fff;
+    color: #2e6b3a;
+    border: 1px dashed #2e6b3a;
+}
+
+button.link-btn {
+    background: none;
+    color: #b3261e;
+    padding: 0;
+}
+
+.debug {
+    font-size: .75rem;
+    background: #eef2ee;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.hint {
+    font-size: .8rem;
+    color: #666;
+    margin-top: .5rem;
+}
+
+.errors {
+    background: #fdecea;
+    color: #b3261e;
+    border-radius: 6px;
+    padding: .75rem 1.5rem;
+    margin-top: 1rem;
+    font-size: .85rem;
+}
+
+.summary h3 {
+    margin: 1rem 0 .25rem;
+    color: #2e6b3a;
+    font-size: 1rem;
+}
+
+.summary p,
+.summary ul {
+    margin: .15rem 0;
+    font-size: .9rem;
+}
+
+.success {
+    text-align: center;
+}
