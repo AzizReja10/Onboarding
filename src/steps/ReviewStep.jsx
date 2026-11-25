@@ -23,7 +23,7 @@ export default function ReviewStep({ data }) {
             Total Monthly Demand
           </span>
           <div className="text-xl font-bold text-emerald-950 mt-0.5">
-            <Number value={totalMonthlyTons} /> <span className="text-xs font-medium text-emerald-700">Kg/mo</span>
+            <div>{totalMonthlyTons}  <span className="text-xs font-medium text-emerald-700">Kg/mo</span></div> 
           </div>
         </div>
         <div>
