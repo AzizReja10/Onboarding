@@ -7,7 +7,6 @@
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 }
-
 @keyframes shimmer-sweep {
   0% {
     transform: translateX(-100%);

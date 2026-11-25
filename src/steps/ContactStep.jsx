@@ -1,17 +1,14 @@
 import React from "react";
 import { Building2, User, Mail, Phone } from "lucide-react";
 import Field from "../components/Field";
-
 export default function ContactStep({ data, onChange }) {
   const set = (key) => (e) => onChange({ ...data, [key]: e.target.value });
-
   return (
     <div className="space-y-4">
       <div className="border-b border-zinc-100 pb-3 mb-4">
         <h2 className="text-base font-semibold text-zinc-900">Primary Contact Details</h2>
         <p className="text-xs text-zinc-500">Provide the organization and contact person details.</p>
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Field label="Company Name" icon={Building2} required>
           <input
@@ -22,7 +19,6 @@ export default function ContactStep({ data, onChange }) {
             onChange={set("company")}
           />
         </Field>
-
         <Field label="Contact Person" icon={User} required>
           <input
             type="text"
@@ -32,7 +28,6 @@ export default function ContactStep({ data, onChange }) {
             onChange={set("person")}
           />
         </Field>
-
         <Field label="Work Email" icon={Mail} required>
           <input
             type="email"
@@ -42,7 +37,6 @@ export default function ContactStep({ data, onChange }) {
             onChange={set("email")}
           />
         </Field>
-
         <Field label="Phone Number" icon={Phone} required hint="10 digits">
           <input
             type="tel"

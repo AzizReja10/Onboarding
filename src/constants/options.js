@@ -7,37 +7,31 @@ export const TYPES = [
   "Rice husk",
   "Sawdust",
 ];
-
-export const FORMS = ["Pellets", "Loose", "Baled", "Briquettes"];
-
+export const FORMS = ["Pellets", "Loose"];
 export const FREQUENCY = ["One-time", "Weekly", "Monthly", "Quarterly"];
-
 export const STEPS = [
   "Contact",
   "Biomass needs",
   "Locations",
   "Pricing & quality",
-  "Review",
+  "Review"
 ];
-
 export const emptyNeed = {
   type: "",
   form: "",
   quantityTonsPerMonth: "",
-  frequency: "",
+  frequency: ""
 };
-
 export const emptyLocation = {
   label: "",
   city: "",
   state: "",
-  pincode: "",
+  pincode: ""
 };
-
 export const initialFormData = {
   contact: { company: "", person: "", email: "", phone: "" },
   needs: [{ ...emptyNeed }],
   locations: [{ ...emptyLocation }],
   pricing: { minPricePerTon: "", maxPricePerTon: "" },
-  quality: { minCalorificKcalPerKg: "" },
+  quality: { minCalorificKcalPerKg: "" }
 };

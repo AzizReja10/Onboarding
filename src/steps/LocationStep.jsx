@@ -2,15 +2,11 @@ import React from "react";
 import { Plus, Trash2, MapPin } from "lucide-react";
 import Field from "../components/Field";
 import { emptyLocation } from "../constants/options";
-
 export default function LocationStep({ data, onChange }) {
   const updateRow = (i, key, value) =>
     onChange(data.map((row, idx) => (idx === i ? { ...row, [key]: value } : row)));
-
   const addRow = () => onChange([...data, { ...emptyLocation }]);
-
   const removeRow = (i) => onChange(data.filter((_, idx) => idx !== i));
-
   return (
     <div className="space-y-5">
       <div className="border-b border-zinc-100 pb-3">
@@ -19,7 +15,6 @@ export default function LocationStep({ data, onChange }) {
           Where should the biomass be delivered? Add all receiving facilities.
         </p>
       </div>
-
       <div className="space-y-4">
         {data.map((row, i) => (
           <div
@@ -36,7 +31,6 @@ export default function LocationStep({ data, onChange }) {
                   {row.label ? row.label : `Site ${i + 1}`}
                 </span>
               </div>
-
               {data.length > 1 && (
                 <button
                   type="button"
@@ -49,7 +43,6 @@ export default function LocationStep({ data, onChange }) {
                 </button>
               )}
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               <Field label="Site Name / Label" required>
                 <input
@@ -60,7 +53,6 @@ export default function LocationStep({ data, onChange }) {
                   className="w-full px-3 py-2 text-sm bg-white border border-zinc-300 rounded-lg text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all"
                 />
               </Field>
-
               <Field label="City" required>
                 <input
                   type="text"
@@ -70,7 +62,6 @@ export default function LocationStep({ data, onChange }) {
                   className="w-full px-3 py-2 text-sm bg-white border border-zinc-300 rounded-lg text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all"
                 />
               </Field>
-
               <Field label="State" required>
                 <input
                   type="text"
@@ -80,7 +71,6 @@ export default function LocationStep({ data, onChange }) {
                   className="w-full px-3 py-2 text-sm bg-white border border-zinc-300 rounded-lg text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all"
                 />
               </Field>
-
               <Field label="Pincode" required hint="6 digits">
                 <input
                   type="text"
@@ -98,7 +88,6 @@ export default function LocationStep({ data, onChange }) {
           </div>
         ))}
       </div>
-
       <button
         type="button"
         onClick={addRow}

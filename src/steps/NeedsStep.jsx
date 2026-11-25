@@ -6,11 +6,8 @@ import { TYPES, FORMS, FREQUENCY, emptyNeed } from "../constants/options";
 export default function NeedsStep({ data, onChange }) {
   const updateRow = (i, key, value) =>
     onChange(data.map((row, idx) => (idx === i ? { ...row, [key]: value } : row)));
-
   const addRow = () => onChange([...data, { ...emptyNeed }]);
-
   const removeRow = (i) => onChange(data.filter((_, idx) => idx !== i));
-
   return (
     <div className="space-y-5">
       <div className="border-b border-zinc-100 pb-3">
@@ -19,7 +16,6 @@ export default function NeedsStep({ data, onChange }) {
           List each type of biomass and monthly required volume.
         </p>
       </div>
-
       <div className="space-y-4">
         {data.map((row, i) => (
           <div
@@ -36,7 +32,6 @@ export default function NeedsStep({ data, onChange }) {
                   Requirement {i + 1}
                 </span>
               </div>
-
               {data.length > 1 && (
                 <button
                   type="button"
@@ -49,7 +44,6 @@ export default function NeedsStep({ data, onChange }) {
                 </button>
               )}
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               <Field label="Biomass Type" required>
                 <select
@@ -65,7 +59,6 @@ export default function NeedsStep({ data, onChange }) {
                   ))}
                 </select>
               </Field>
-
               <Field label="Preferred Form" required>
                 <select
                   value={row.form}
@@ -80,8 +73,7 @@ export default function NeedsStep({ data, onChange }) {
                   ))}
                 </select>
               </Field>
-
-              <Field label="Quantity (Tons / Month)" required>
+              <Field label="Quantity (Kg)" required>
                 <div className="relative">
                   <input
                     type="number"
@@ -92,11 +84,10 @@ export default function NeedsStep({ data, onChange }) {
                     className="w-full px-3 py-2 pr-16 text-sm bg-white border border-zinc-300 rounded-lg text-zinc-900 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all"
                   />
                   <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-zinc-400 pointer-events-none">
-                    tons/mo
+                    Kg
                   </span>
                 </div>
               </Field>
-
               <Field label="Supply Frequency" required>
                 <select
                   value={row.frequency}
@@ -115,7 +106,6 @@ export default function NeedsStep({ data, onChange }) {
           </div>
         ))}
       </div>
-
       <button
         type="button"
         onClick={addRow}

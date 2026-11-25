@@ -1,11 +1,9 @@
 import React from "react";
 import { Check } from "lucide-react";
 import { cn } from "../lib/utils";
-
 export default function Step({ steps, current }) {
   return (
     <div className="w-full mb-8">
-      {/* Desktop Stepper */}
       <ol className="hidden sm:flex items-center justify-between w-full relative">
         {steps.map((label, i) => {
           const isDone = i < current;
@@ -49,8 +47,6 @@ export default function Step({ steps, current }) {
           );
         })}
       </ol>
-
-      {/* Mobile Stepper */}
       <div className="sm:hidden flex items-center justify-between bg-zinc-50 border border-zinc-200/90 rounded-xl px-4 py-3">
         <div className="flex flex-col">
           <span className="text-[11px] uppercase tracking-wider text-emerald-700 font-semibold">

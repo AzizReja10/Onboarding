@@ -1,7 +1,6 @@
 import React from "react";
 import { IndianRupee, Flame, Info } from "lucide-react";
 import Field from "../components/Field";
-
 export default function PricingStep({
   pricing,
   quality,
@@ -17,7 +16,6 @@ export default function PricingStep({
             Set your target landed price per ton.
           </p>
         </div>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Field label="Minimum Price (₹ / Ton)" icon={IndianRupee} required>
             <div className="relative">
@@ -36,7 +34,6 @@ export default function PricingStep({
               />
             </div>
           </Field>
-
           <Field label="Maximum Price (₹ / Ton)" icon={IndianRupee} required>
             <div className="relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm font-semibold text-zinc-400">
@@ -56,7 +53,6 @@ export default function PricingStep({
           </Field>
         </div>
       </div>
-
       <div>
         <div className="border-b border-zinc-100 pb-3 mb-4">
           <h2 className="text-base font-semibold text-zinc-900">Quality Specification</h2>
@@ -64,7 +60,6 @@ export default function PricingStep({
             Ensure the biomass provides sufficient thermal output.
           </p>
         </div>
-
         <Field
           label="Minimum Calorific Value (kcal/kg)"
           icon={Flame}
@@ -87,7 +82,6 @@ export default function PricingStep({
             </span>
           </div>
         </Field>
-
         <div className="mt-3.5 flex items-start gap-2.5 p-3 rounded-lg bg-emerald-50/60 border border-emerald-100 text-xs text-emerald-900">
           <Info className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
           <p className="leading-relaxed">

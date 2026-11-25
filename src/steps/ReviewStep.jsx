@@ -1,6 +1,5 @@
 import React from "react";
 import { Building2, User, Mail, Phone, Package, MapPin, IndianRupee, Flame } from "lucide-react";
-import MagicCard from "../components/magicui/magic-card";
 import NumberTicker from "../components/magicui/number-ticker";
 
 export default function ReviewStep({ data }) {
@@ -10,7 +9,6 @@ export default function ReviewStep({ data }) {
     (acc, curr) => acc + (Number(curr.quantityTonsPerMonth) || 0),
     0
   );
-
   return (
     <div className="space-y-5">
       <div className="border-b border-zinc-100 pb-3">
@@ -19,8 +17,6 @@ export default function ReviewStep({ data }) {
           Please review your details before submitting to the Regenerix team.
         </p>
       </div>
-
-      {/* Summary highlight */}
       <div className="grid grid-cols-2 gap-3 p-3.5 bg-emerald-50/70 border border-emerald-200/70 rounded-xl text-center">
         <div>
           <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-800 block">
@@ -41,8 +37,7 @@ export default function ReviewStep({ data }) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Contact info card with MagicCard spotlight */}
-        <MagicCard className="p-4 space-y-2.5">
+        <div className="rounded-xl border border-zinc-200 bg-white p-4 space-y-2.5">
           <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-zinc-500 border-b border-zinc-100 pb-2">
             <Building2 className="w-3.5 h-3.5 text-emerald-600" />
             <span>Company & Contact</span>
@@ -62,10 +57,8 @@ export default function ReviewStep({ data }) {
               {contact.phone || "-"}
             </p>
           </div>
-        </MagicCard>
-
-        {/* Pricing & quality card with MagicCard spotlight */}
-        <MagicCard className="p-4 space-y-2.5">
+        </div>
+        <div className="rounded-xl border border-zinc-200 bg-white p-4 space-y-2.5">
           <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-zinc-500 border-b border-zinc-100 pb-2">
             <IndianRupee className="w-3.5 h-3.5 text-emerald-600" />
             <span>Budget & Quality</span>
@@ -85,10 +78,8 @@ export default function ReviewStep({ data }) {
               </span>
             </div>
           </div>
-        </MagicCard>
+        </div>
       </div>
-
-      {/* Biomass Needs list */}
       <div className="rounded-xl border border-zinc-200 bg-white p-4 space-y-2.5">
         <div className="flex items-center justify-between border-b border-zinc-100 pb-2">
           <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-zinc-500">
@@ -110,8 +101,6 @@ export default function ReviewStep({ data }) {
           ))}
         </div>
       </div>
-
-      {/* Delivery Sites list */}
       <div className="rounded-xl border border-zinc-200 bg-white p-4 space-y-2.5">
         <div className="flex items-center justify-between border-b border-zinc-100 pb-2">
           <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-zinc-500">
