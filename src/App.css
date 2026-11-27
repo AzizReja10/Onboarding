@@ -18,7 +18,8 @@ h1 {
     box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
     margin: 1rem 0;
 }
-
+.map { height: 320px; border-radius: 8px; margin-top: .75rem; z-index: 0; }
+.map-actions { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: 1rem; }
 .actions {
     display: flex;
     justify-content: space-between;
@@ -164,3 +165,57 @@ button.link-btn {
 .success {
     text-align: center;
 }
+/* ---------- Locations step ---------- */
+.loc-title { margin: 0; font-size: 1.15rem; }
+.loc-sub { margin: 4px 0 16px; color: #6b7a72; font-size: .85rem; }
+
+.loc-card { background: #f8faf9; border: 1px solid #e3e9e5; border-radius: 12px;
+            padding: 16px; margin-bottom: 16px; }
+.loc-card-head { display: flex; align-items: center; gap: 8px; padding-bottom: 12px;
+                 margin-bottom: 14px; border-bottom: 1px solid #e3e9e5; }
+.loc-badge { width: 24px; height: 24px; border-radius: 50%; background: #d1fae5;
+             color: #047857; font-size: .75rem; font-weight: 600;
+             display: inline-flex; align-items: center; justify-content: center; }
+.loc-pin { color: #047857; display: inline-flex; }
+.loc-remove { margin-left: auto; background: none; border: 0; color: #b3261e;
+              cursor: pointer; font-size: .85rem; }
+
+.loc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 560px) { .loc-grid { grid-template-columns: 1fr; } }
+.loc-field { display: flex; flex-direction: column; gap: 6px; }
+.loc-label { display: flex; align-items: center; font-size: .72rem; font-weight: 600;
+             letter-spacing: .04em; text-transform: uppercase; color: #3d4a43; }
+.loc-req { color: #047857; margin-left: 4px; }
+.loc-hint { margin-left: auto; font-weight: 400; text-transform: none;
+            letter-spacing: 0; color: #8a968f; }
+.loc-field input { padding: 12px; border: 1px solid #cfd8d2; border-radius: 8px;
+                   font-size: .95rem; background: #fff; }
+.loc-field input:focus { outline: 2px solid #a7f3d0; border-color: #047857; }
+
+.loc-map-row { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+.loc-pinned { font-size: .8rem; color: #047857; }
+
+.loc-btn-outline { display: inline-flex; align-items: center; gap: 6px; background: #fff;
+                   color: #047857; border: 1px solid #047857; border-radius: 8px;
+                   padding: 9px 14px; cursor: pointer; font-size: .85rem; }
+.loc-btn-primary { background: #047857; color: #fff; border: 0; border-radius: 8px;
+                   padding: 10px 16px; cursor: pointer; font-size: .85rem; }
+.loc-btn-primary:disabled { background: #a8bdb2; cursor: not-allowed; }
+
+.loc-add { width: 100%; padding: 14px; background: #f0fbf6; color: #047857;
+           border: 1.5px dashed #6ee7b7; border-radius: 10px; cursor: pointer; font-size: .9rem; }
+
+/* ---------- Map modal ---------- */
+/* z-index must beat Leaflet's own panes and controls (up to 1000) */
+.loc-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 2000;
+               display: flex; align-items: center; justify-content: center; padding: 16px; }
+.loc-modal { background: #fff; border-radius: 14px; padding: 16px; width: 100%;
+             max-width: 640px; max-height: 95vh; overflow: auto; }
+.loc-modal-head { display: flex; justify-content: space-between; align-items: center; }
+.loc-modal-head h3 { margin: 0; font-size: 1rem; }
+.loc-x { background: none; border: 0; font-size: 1.6rem; line-height: 1; cursor: pointer; color: #555; }
+.loc-status { margin: 10px 0 0; font-size: .8rem; color: #047857; }
+.loc-status.warn { color: #b45309; }
+.loc-help { margin: 8px 0 12px; font-size: .8rem; color: #6b7a72; }
+.loc-modal-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.loc-spacer { flex: 1; }

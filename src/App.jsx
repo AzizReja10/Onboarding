@@ -144,13 +144,13 @@ export default function App() {
                     <CheckCircle2 className="w-4 h-4" />
                   </ShimmerButton>
                 ) : (
-                  <ShimmerButton
+                  <button
                     onClick={next}
-                    className="font-semibold text-sm px-6 py-2.5"
+                    className="inline-flex items-center gap-1.5 px-5 py-2.5 text-sm font-semibold text-white bg-emerald-600 border border-emerald-700 rounded-xl hover:bg-emerald-800 transition-all cursor-pointer outline-none focus:outline-none focus:ring-2 focus:ring-emerald-600/30 disabled:opacity-40 disabled:pointer-events-none"
                   >
                     <span>Continue</span>
                     <ArrowRight className="w-4 h-4" />
-                  </ShimmerButton>
+                  </button>
                 )}
               </div>
             </div>

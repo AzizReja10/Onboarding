@@ -33,3 +33,18 @@
 .animate-shiny-text {
   animation: shiny-text 8s infinite;
 }
+
+.map {
+  height: 320px;
+  border-radius: 8px;
+  margin-top: 0.75rem;
+  z-index: 0;
+}
+
+.map-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}

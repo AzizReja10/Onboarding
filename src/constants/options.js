@@ -22,18 +22,20 @@ export const emptyNeed = {
   quantityTonsPerMonth: "",
   frequency: ""
 };
-export const emptyLocation = {
-  label: "",
-  city: "",
-  state: "",
-  pincode: ""
-};
 export const contact={
   company:"",
   person:"",
   email:"",
   phone:"",
   pan:"",
+}
+export const emptyLocation={
+  label:"",
+  city:"",
+  state:"",
+  pincode:"",
+  lat:null,
+  lng:null
 }
 export const initialFormData = {
   contact: [{...contact}],

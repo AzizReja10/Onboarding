@@ -1,4 +1,6 @@
 const emailOk=(v)=> /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+// PAN: 3 letters + entity type (A,B,C,F,G,H,L,J,P,T) + 1 letter + 4 digits (0001-9999) + 1 letter
+const panOk=(v)=> /^[A-Z]{3}[ABCFGHLJPT][A-Z](?!0000)[0-9]{4}[A-Z]$/.test(v);
 
 export function validateStep(step, formData) {
   const errors=[];
@@ -6,7 +8,11 @@ export function validateStep(step, formData) {
     const { company="", person="", email="", phone="", pan="" }=formData.contact||{};
     if(!company.trim()) errors.push("Company name is required.");
     if(!person.trim()) errors.push("Contact person is required.");
-    if(!pan.trim()) errors.push("PAN number is required.");
+    if(!pan.trim()) {
+      errors.push("PAN number is required.");
+    } else if(!panOk(pan.trim().toUpperCase())) {
+      errors.push("Enter a valid 10-character PAN (e.g. ABCDE1234F).");
+    }
     if(!emailOk(email.trim())) errors.push("Enter a valid email address.");
     if(phone.replace(/\D/g, "").length < 10)
       errors.push("Enter a valid 10-digit phone number.");
@@ -29,11 +35,13 @@ export function validateStep(step, formData) {
       errors.push("At least one delivery site is needed.");
     } else {
       formData.locations.forEach((l, i)=> {
-        if(!l.label?.trim()) errors.push(`Site ${i+1}: label is required.`);
-        if(!l.city?.trim()) errors.push(`Site ${i+1}: city is required.`);
-        if(!l.state?.trim()) errors.push(`Site ${i+1}: state is required.`);
-        if((l.pincode||"").length !==6)
-          errors.push(`Site ${i+1}: pincode must be 6 digits.`);
+        const hasPin = l.lat !== null && l.lat !== undefined && l.lng !== null && l.lng !== undefined;
+        if(!hasPin) {
+          if(!l.city?.trim()) errors.push(`Site ${i+1}: city is required.`);
+          if(!l.state?.trim()) errors.push(`Site ${i+1}: state is required.`);
+          if((l.pincode||"").length !==6)
+            errors.push(`Site ${i+1}: pincode must be 6 digits.`);
+        }
       });
     }
   }

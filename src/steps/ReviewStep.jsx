@@ -114,9 +114,17 @@ export default function ReviewStep({ data }) {
               <span className="font-semibold text-zinc-800 block">
                 {l.label || `Site ${i + 1}`}
               </span>
-              <span className="text-zinc-500 mt-0.5 block">
-                {l.city}, {l.state} - {l.pincode}
-              </span>
+              {(l.city || l.state || l.pincode) && (
+                <span className="text-zinc-500 mt-0.5 block">
+                  {[l.city, l.state].filter(Boolean).join(", ")}
+                  {l.pincode ? ` - ${l.pincode}` : ""}
+                </span>
+              )}
+              {l.lat !== null && l.lat !== undefined && l.lng !== null && l.lng !== undefined && (
+                <span className="text-emerald-700 mt-0.5 block">
+                  Pinned at {l.lat}, {l.lng}
+                </span>
+              )}
             </div>
           ))}
         </div>
