@@ -28,8 +28,15 @@ export const emptyLocation = {
   state: "",
   pincode: ""
 };
+export const contact={
+  company:"",
+  person:"",
+  email:"",
+  phone:"",
+  pan:"",
+}
 export const initialFormData = {
-  contact: { company: "", person: "", email: "", phone: "" },
+  contact: [{...contact}],
   needs: [{ ...emptyNeed }],
   locations: [{ ...emptyLocation }],
   pricing: { minPricePerTon: "", maxPricePerTon: "" },

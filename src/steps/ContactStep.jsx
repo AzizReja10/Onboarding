@@ -1,5 +1,5 @@
 import React from "react";
-import { Building2, User, Mail, Phone } from "lucide-react";
+import { Building2, User, Mail, Phone,IdCard } from "lucide-react";
 import Field from "../components/Field";
 export default function ContactStep({ data, onChange }) {
   const set = (key) => (e) => onChange({ ...data, [key]: e.target.value });
@@ -45,6 +45,10 @@ export default function ContactStep({ data, onChange }) {
             value={data.phone}
             onChange={(e) => onChange({ ...data, phone: e.target.value.replace(/\D/g, "").slice(0, 10) })}
           />
+        </Field>
+        <Field label="PAN Number" icon={IdCard} required>
+        <input type="number" className= "w-full px-3.5 py-2.5 text-sm bg-white border border-zinc-300 rounded-lg text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all"
+         placeholder="Enter your pan number" value={data.pan} onChange={set("pan")}/>
         </Field>
       </div>
     </div>

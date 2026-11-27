@@ -3,9 +3,10 @@ const emailOk=(v)=> /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 export function validateStep(step, formData) {
   const errors=[];
   if(step===0) {
-    const { company="", person="", email="", phone="" }=formData.contact||{};
+    const { company="", person="", email="", phone="", pan="" }=formData.contact||{};
     if(!company.trim()) errors.push("Company name is required.");
     if(!person.trim()) errors.push("Contact person is required.");
+    if(!pan.trim()) errors.push("PAN number is required.");
     if(!emailOk(email.trim())) errors.push("Enter a valid email address.");
     if(phone.replace(/\D/g, "").length < 10)
       errors.push("Enter a valid 10-digit phone number.");
